@@ -1,12 +1,11 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-import "forge-std/Test.sol";     
+import "forge-std/Test.sol";
 // import "forge-std/console.sol"; // logging
 import "../src/CRSToken.sol";
 
 contract CRSTokenTest is Test {
-
     CRSToken token;
 
     // hardhat getSigner() -> vm.addr()
@@ -21,7 +20,7 @@ contract CRSTokenTest is Test {
     }
 
     function testInfo() public view {
-        assertEq("Crypsure",token.name());
+        assertEq("Crypsure", token.name());
         assertEq("CRS", token.symbol());
     }
 
@@ -32,7 +31,7 @@ contract CRSTokenTest is Test {
         assertEq(token.balanceOf(user2), 2000000000e18);
     }
 
-    function testBurn() public {        
+    function testBurn() public {
         token.burn(1000000000e18);
 
         assertEq(token.totalSupply(), 9000000000e18);
@@ -93,7 +92,7 @@ contract CRSTokenTest is Test {
 
     function testFailTransferInsufficientBalance() external {
         vm.prank(userNew);
-        token.transfer(user2 , 3e18);
+        token.transfer(user2, 3e18);
     }
 
     function testFailTransferFromInsufficientApprove() external {
@@ -102,9 +101,8 @@ contract CRSTokenTest is Test {
     }
 
     function testFailTransferFromInsufficientBalance() external {
-        token.approve(address(this), type(uint).max);
+        token.approve(address(this), type(uint256).max);
 
         token.transferFrom(user1, user2, 3e18);
     }
-    
-}   
+}

@@ -122,11 +122,11 @@ library SafeMath {
 
         return c;
     }
-  
+
     /**
-    * @dev Divides two numbers and returns the remainder (unsigned integer modulo),
-    * reverts when dividing by zero.
-    */
+     * @dev Divides two numbers and returns the remainder (unsigned integer modulo),
+     * reverts when dividing by zero.
+     */
     function mod(uint256 a, uint256 b) internal pure returns (uint256) {
         require(b != 0);
         return a % b;
@@ -135,17 +135,15 @@ library SafeMath {
     function pow(uint256 base, uint256 exponent) internal pure returns (uint256) {
         if (exponent == 0) {
             return 1;
-        }
-        else if (exponent == 1) {
+        } else if (exponent == 1) {
             return base;
-        }
-        else if (base == 0 && exponent != 0) {
+        } else if (base == 0 && exponent != 0) {
             return 0;
-        }
-        else {
+        } else {
             uint256 z = base;
-            for (uint256 i = 1; i < exponent; i++)
+            for (uint256 i = 1; i < exponent; i++) {
                 z = mul(z, base);
+            }
             return z;
         }
     }

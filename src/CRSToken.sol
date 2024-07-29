@@ -9,8 +9,7 @@ import "./zeppelin/SafeMath.sol";
 /// @author Crypsure DeFi
 /// @notice Crypsure ERC20 token (CRS)
 contract CRSToken is Ownable, ERC20Burnable {
-	
-	constructor() ERC20("Crypsure", "CRS") {
+    constructor() ERC20("Crypsure", "CRS") {
         uint256 totalSupply = SafeMath.mul(SafeMath.pow(10, decimals()), 10000000000);
         _mint(msg.sender, totalSupply);
 
@@ -22,5 +21,4 @@ contract CRSToken is Ownable, ERC20Burnable {
         transfer(0x8e322626Bd18b8EEB8794eC9674885da7C8565e9, SafeMath.mul(SafeMath.pow(10, decimals()), 500000000));
         transfer(0xd2559b42cc43435D346d211aD437f1cf97f67714, SafeMath.mul(SafeMath.pow(10, decimals()), 500000000));
     }
-	
 }
